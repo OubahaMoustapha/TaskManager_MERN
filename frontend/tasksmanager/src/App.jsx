@@ -4,16 +4,18 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import PrivateRoute from "./routes/PrivateRoute";
 import Login from "./pages/Auth/Login";
 import SignUp from "./pages/Auth/SignUp";
 import Dashboard from "./pages/Admin/Dashboard";
 import ManageTasks from "./pages/Admin/ManageTasks";
 import CreateTask from "./pages/Admin/CreateTask";
 import ManageUsers from "./pages/Admin/ManageUsers";
+
 import UserDashboard from "./pages/User/UserDashboard";
 import ViewTaskDetails from "./pages/User/ViewTaskDetails";
 import MyTasks from "./pages/User/MyTasks";
+
+import PrivateRoute from "./routes/PrivateRoute";
 
 // Main App component
  
