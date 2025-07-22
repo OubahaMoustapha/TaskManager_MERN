@@ -1,0 +1,25 @@
+const mongoose = require('mongoose');
+
+const todoShema = new mongoose.Schema({
+    text: { type: String, required: true},
+    completed: { type: Boolean, default: false}
+});
+
+
+const taskShema = new mongoose.Schema(
+    {
+        title: {type: String, required: true},
+        description: {type: String},
+        priority: {type: String, enum: ["Low", "Medium","Hight"], default: "Medium"},
+        status:{ type: String, enum: ["Pending", "In Progress", "Completed"], default: "Pending"},
+        dueDate: { type: Date, required: true},
+        assignedTo: [{ type: mongoose.Schema.Types.ObjectId, ref: "User"}],
+        createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User"},
+        attachments: [{type: String}],
+        todoChecklist: [todoShema], // Array of todo items
+        progress: {type: Number, default: 0}
+    },
+    {timestamps: true}
+);
+
+module.exports = mongoose.model("Task", taskShema);
